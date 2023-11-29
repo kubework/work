@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: work-server
+spec:
+  selector:
+    matchLabels:
+      app: work-server
+  template:
+    metadata:
+      labels:
+        app: work-server
+    spec:
+      serviceAccountName: work-server
+      containers:
+        - name: work-server
+          image: kubework/workcli:latest
+          args: [server]
+          ports:
+            - containerPort: 2746
+          readinessProbe:
+            httpGet:
+              port: 2746
+              scheme: HTTP
+              path: /
+            initialDelaySeconds: 10
+            periodSeconds: 20

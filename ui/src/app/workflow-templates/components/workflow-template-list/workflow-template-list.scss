@@ -1,0 +1,8 @@
+@import 'node_modules/work-ui/src/styles/config';
+
+.work-table-list {
+  margin: 1em;
+  &__row:hover {
+    box-shadow: 1px 2px 3px rgba($work-color-gray-9, .1), 0 0 0 1px rgba($work-color-teal-5, .5);
+  }
+}

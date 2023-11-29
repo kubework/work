@@ -1,0 +1,13 @@
+apiVersion: kubework.io/v1alpha1
+kind: Workflow
+metadata:
+  name: basic-2
+  labels:
+    work-e2e: true
+spec:
+  entrypoint: run-workflow
+  templates:
+    - name: run-workflow
+      container:
+        image: cowsay:v1
+        imagePullPolicy: IfNotPresent
